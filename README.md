@@ -1,25 +1,3 @@
-Step to Demo
-- login
-
-
-oc apply -f cluster.yaml
-oc apply -f topic.yaml
-
-
-oc apply -f consumer.yaml
-oc apply -f consumer2.yaml
-oc apply -f consumer3.yaml
-oc apply -f consumer4.yaml
-oc apply -f consumer5.yaml
-oc logs -n amq-streams -f $(oc get pods -l app=hello-world-producer -o name)
-oc logs -n amq-streams -f $(oc get pods -l app=hello-world-consumer -o name)
-oc delete pods my-cluster-kafka-0 --grace-period=0
-oc delete kt my-topic
-
-
-producer/consumer source code
-https://github.com/strimzi/client-examples
-
 # Quick Start Kafka with AMQ Streams on OpenShift
 
 ![](images/operators.png)
@@ -90,6 +68,7 @@ https://github.com/strimzi/client-examples
     or view by developer console
     ![](images/demo6.png)
 - Optional
+  - producer/consumer example source code at --> https://github.com/strimzi/client-examples
   - test delete kafka broker
     
     for test delete broker pod, and wait until broker back to cluster and pv don't remove
